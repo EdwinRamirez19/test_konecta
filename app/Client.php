@@ -37,9 +37,9 @@ class Client extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
-        'identification' => 'required',
-        'mail' => 'required',
+        'name' => 'required|string',
+        'identification' => 'required|number|max:11',
+        'mail' => 'required|email|unique',
         'address' => 'required'
     ];
 

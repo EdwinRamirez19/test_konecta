@@ -11,6 +11,7 @@
           <div class="row">
               <div class="col">
                   <input type="text" class="form-control"name="name" id="name" placeholder="Ingrese El nombre"  required>
+                  <span id="error_name"></span>
               </div>
             </div>
             <br>
@@ -18,6 +19,7 @@
               
                 <div class="col">
                   <input type="email" class="form-control"name="email" id="email" placeholder="Ingrese El Correo" required>
+                  <span id="error_email"></span>
                 </div>
             </div>
             <br>
@@ -25,6 +27,7 @@
               
                 <div class="col">
                   <input type="password" class="form-control"name="password" id="password" placeholder="Ingrese La Password" required>
+                  <span id="error_password"></span>
                 </div>
             </div>
             <br>
@@ -36,6 +39,7 @@
                     <option value="Admin">Administrado</option>
                     <option value="Vendedor">Vendedor</option>
                   </select>
+                  <span id="error_role"></span>
                 </div>
             </div>
             

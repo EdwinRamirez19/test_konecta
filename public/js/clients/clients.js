@@ -340,9 +340,11 @@ $(document).ready(function () {
     $("#cancel").on('click', function (params) {
         $('input').val("");
         $("input").prop('disabled', false)
+        clear()
         $("#save").show();
         $("#clients_modal").removeData()
         $("#clients_modal").modal('close')
+        
     })
 
 
@@ -372,7 +374,7 @@ $(document).ready(function () {
             }
 
             alertSuccess(title)
-
+            clear()
             $('input').val('')
             method = ''
             url = ''
@@ -383,7 +385,7 @@ $(document).ready(function () {
         })
             .fail(function (jqXHR, estado, error) {
                 console.log(jqXHR)
-                validaciones(jqXHR)
+                validate(jqXHR)
                 alertError()
             })
     }
@@ -405,15 +407,22 @@ $(document).ready(function () {
         })
     }
 
+    
 
-
-    function validaciones(jqXHR) {
+    function validate(jqXHR) {
         $("#error_name").text(jqXHR.responseJSON.errors.name).css({ 'color': 'red', 'aling': 'center' });
         $("#error_identification").text(jqXHR.responseJSON.errors.identification).css({ 'color': 'red', 'aling': 'center' });
         $("#error_mail").text(jqXHR.responseJSON.errors.mail).css({ 'color': 'red', 'aling': 'center' });
         $("#error_address").text(jqXHR.responseJSON.errors.address).css({ 'color': 'red', 'aling': 'center' });
 
     }
+    function clear() {
+        $("#error_name").text("");
+        $("#error_identification").text("");
+        $("#error_mail").text("");
+        $("#error_address").text("");
 
-    //faltan validaciones para mostrar o ocultar los campos del acompañante 
+    }
+
+    
 })

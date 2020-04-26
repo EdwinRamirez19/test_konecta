@@ -74,6 +74,7 @@
                                 'role': response.user.role,
                                 'token': response.token
                             }
+                            
                             localStorage.setItem('user', JSON.stringify(data));
                             if (response.token) {
                                 window.location.href = '/getClients';
@@ -83,9 +84,7 @@
                         request.fail(function(res) {
                             console.log(res.readyState);
                             if (res.readyState == 4) {
-                                $(".print-error-msg").find("ul").html('');
-                                $(".print-error-msg").css('display','block');
-                                $(".print-error-msg").find("ul").append('<li>Datos erroneos vuele a intentarlo</li>');
+                                alert('Credenciales incorrectas')
                             }
                         });
                 }else{

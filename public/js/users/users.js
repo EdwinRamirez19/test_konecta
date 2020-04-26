@@ -243,7 +243,7 @@ $(document).ready(function () {
     function fillData(client) {
         $("#name").val(client[0].name)
         $("#password").val(client[0].password)
-        $("#mail").val(client[0].mail)
+        $("#email").val(client[0].email)
         $("#role").val(client[0].role)
 
     }
@@ -312,6 +312,7 @@ $(document).ready(function () {
     $("#cancel").on('click', function (params) {
         $('input').val("");
         $("input").prop('disabled', false)
+        clear()
         $("#save").show();
         $("#users_modal").removeData()
         $("#users_modal").modal('close')
@@ -344,7 +345,7 @@ $(document).ready(function () {
             }
 
             alertSuccess(title)
-
+            clear()
             $('input').val('')
             method = ''
             url = ''
@@ -355,7 +356,7 @@ $(document).ready(function () {
         })
             .fail(function (jqXHR, estado, error) {
                 console.log(jqXHR)
-                validaciones(jqXHR)
+                validate(jqXHR)
                 alertError()
             })
     }
@@ -379,13 +380,19 @@ $(document).ready(function () {
 
 
 
-    function validaciones(jqXHR) {
-        // $("#error_name").text(jqXHR.responseJSON.errors.name).css({ 'color': 'red', 'aling': 'center' });
-        // $("#error_identification").text(jqXHR.responseJSON.errors.password).css({ 'color': 'red', 'aling': 'center' });
-        // $("#error_mail").text(jqXHR.responseJSON.errors.mail).css({ 'color': 'red', 'aling': 'center' });
-        // $("#error_address").text(jqXHR.responseJSON.errors.role).css({ 'color': 'red', 'aling': 'center' });
+
+    function validate(jqXHR) {
+        $("#error_name").text(jqXHR.responseJSON.errors.name).css({ 'color': 'red', 'aling': 'center' });
+        $("#error_password").text(jqXHR.responseJSON.errors.password).css({ 'color': 'red', 'aling': 'center' });
+        $("#error_email").text(jqXHR.responseJSON.errors.email).css({ 'color': 'red', 'aling': 'center' });
+        $("#error_role").text(jqXHR.responseJSON.errors.role).css({ 'color': 'red', 'aling': 'center' });
 
     }
+    function clear() {
+        $("#error_name").text("");
+        $("#error_password").text("");
+        $("#error_email").text("");
+        $("#error_role").text("");
 
-    //faltan validaciones para mostrar o ocultar los campos del acompañante 
+    }
 })

@@ -10,7 +10,7 @@
   Launch demo modal
 </button>
   </div>
-  <div class="card-body">
+  <div class="card-body" id="client_validate">
         <table class="table table-hover" id='clients_table'></table>
   </div>
   

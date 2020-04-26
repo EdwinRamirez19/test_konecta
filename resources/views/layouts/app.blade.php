@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item" id="url_clients">
-                <a class="nav-link" href="/api/logout">Cerrar Sesion</a>
+                <a class="nav-link" id="cerrar_sesion">Cerrar Sesion</a>
             </li>
             
             </ul>
@@ -44,6 +44,11 @@
             if(rol.role ==='Vendedor'){
                 $("#url_users").hide();
             }
+
+            $("#cerrar_sesion").on('click',function (params) {
+                window.location.href='/'
+                localStorage.clear()
+            })
         </script>
 </body>
 </html>

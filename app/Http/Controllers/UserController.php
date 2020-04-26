@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 class UserController extends Controller
 {
     //si el usuario y contraseña coincide, generará un token.
@@ -44,7 +46,7 @@ public function logout() {
     }
 
 
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
          $user =  User::create([
             'name' => $request->name,
@@ -56,7 +58,7 @@ public function logout() {
     }
 
     
-    public function update(Request $request,User $user)
+    public function update(UpdateUserRequest $request,User $user)
     {
           $user->update([
             'name' => $request->name,

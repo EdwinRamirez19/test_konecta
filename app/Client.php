@@ -38,8 +38,8 @@ class Client extends Model
      */
     public static $rules = [
         'name' => 'required|string',
-        'identification' => 'required|number|max:11',
-        'mail' => 'required|email|unique',
+        'identification' => 'required|numeric',
+        'mail' => 'required|email|unique:clients',
         'address' => 'required'
     ];
 

@@ -23,8 +23,11 @@ class CreateClientRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Client::$rules;
-        
-        return $rules;
+        return[
+        'name' => 'required|string',
+        'identification' => 'required|numeric',
+        'mail' => 'required|email|unique:clients',
+        'address' => 'required'
+        ];
     }
 }

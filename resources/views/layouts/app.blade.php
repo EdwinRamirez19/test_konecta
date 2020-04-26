@@ -20,10 +20,10 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
             <li class="nav-item active" id="url_users">
-                <a class="nav-link" href="/getUsers">Usuarios <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{route('getUsers')}}">Usuarios <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item" id="url_clients">
-                <a class="nav-link" href="/getClients">Clientes</a>
+                <a class="nav-link" href="{{route('getClients')}}">Clientes</a>
             </li>
 
             <li class="nav-item" id="url_clients">

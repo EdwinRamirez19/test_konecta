@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('getClients','ClientController@getIndex');
+Route::get('getClients','ClientController@getIndex')->name('getClients');
 
-Route::get('getUsers','UserController@getIndexUsers');
+Route::get('getUsers','UserController@getIndexUsers')->name('getUsers');
